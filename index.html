@@ -1,1 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Special Invite ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg,#ff758c,#ff7eb3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.card {
+  background: #fff;
+  padding: 35px 25px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 350px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+h1 {
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  position: relative;
+  height: 120px;
+}
+
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  position: absolute;
+}
+
+#yes {
+  background: #ff4d6d;
+  color: white;
+  left: 20%;
+  bottom: 0;
+}
+
+#no {
+  background: #ddd;
+  color: #333;
+  right: 20%;
+  bottom: 0;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>Will you go on a date with me? 💖</h1>
+  <p>I promise food, laughs, and good vibes.</p>
+
+  <div class="buttons">
+    <button id="yes">Yes 😍</button>
+    <button id="no">No 🙃</button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("no");
+
+function moveNo() {
+  const parent = document.querySelector(".buttons");
+  const maxX = parent.clientWidth - noBtn.clientWidth;
+  const maxY = 80;
+
+  noBtn.style.left = Math.random() * maxX + "px";
+  noBtn.style.bottom = Math.random() * maxY + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("touchstart", moveNo);
+
+document.getElementById("yes").addEventListener("click", () => {
+  document.body.innerHTML = `
+    <div style="
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#ff758c,#ff7eb3);
+      color:white;
+      font-family:Arial;
+      text-align:center;">
+      <h1>Date confirmed ❤️<br>See you soon 😘</h1>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
